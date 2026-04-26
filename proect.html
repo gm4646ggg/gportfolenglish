@@ -1,0 +1,505 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Projects</title>  
+    <link rel="stylesheet" type="text/css" href="css/style.css">  
+    <style>  
+        body {       
+            font-family: Arial, Helvetica, sans-serif;       
+            margin: 0;       
+            padding: 0;       
+            background: url('img/oform/fonn.jpg') no-repeat center center fixed;       
+            background-size: cover;       
+            font-size: 16px;       
+            color: #ffffff;       
+            position: relative;       
+        }       
+        header {       
+            background-color: rgba(0, 0, 0, 0.8);       
+            padding: 30px;       
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);       
+            text-align: center;      
+            border-radius: 15px;       
+            margin: 20px;       
+        }       
+        nav {       
+            margin: 15px 0;       
+        }       
+        nav a {       
+            margin: 0 15px;       
+            text-decoration: none;       
+            color: #f0f0f0;       
+            font-size: 18px;       
+            transition: color 0.3s;       
+        }       
+        nav a:hover {       
+            color: #eaeaea;       
+            text-decoration: underline;       
+        }       
+        h2 {       
+            color: #ffffff;       
+            font-size: 36px;       
+            margin-bottom: 10px;       
+            text-align: center;       
+            position: relative;      
+            margin-top: 30px; 
+        }       
+        h4 {       
+            color: #f2f2f2;       
+            font-size: 20px;       
+            margin: 10px 0;       
+            text-align: center;       
+        }       
+        .transparent-bg {       
+            background-color: rgba(30, 30, 30, 0.9);       
+            padding: 30px;       
+            border-radius: 10px;       
+            margin: 10px 20px;       
+            max-width: 600px;       
+            text-align: center;       
+        }       
+        .content-container {       
+            display: flex;       
+            flex-direction: column;       
+            align-items: center;       
+            margin-top: 5%;       
+        }       
+        .image-wrapper {   
+            margin: 10px;   
+            flex: 1;   
+            display: flex;   
+            justify-content: center;   
+        }   
+  
+        img {       
+            width: 100%;       
+            height: auto;         
+            transition: transform 0.3s;       
+            border-radius: 10px;   
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);   
+            cursor: pointer;
+        }       
+        img:hover {       
+            transform: scale(1.05);       
+        }       
+  
+        .contact-box {   
+            background-color: rgba(0, 0, 0, 0.5);  
+            border: 2px solid rgba(0, 0, 0, 0.5);   
+            border-radius: 8px;   
+            padding: 15px;       
+            margin: 20px 0;   
+            text-align: center;   
+        }   
+         
+        .featured-section {   
+            display: flex;   
+            flex-wrap: wrap;   
+            justify-content: space-around;   
+            margin: 20px;   
+        }
+
+        .section-container {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        /* Modal for images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+            object-fit: contain;
+        }
+        
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 1001;
+        }
+        
+        .close:hover {
+            color: #f44336;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 20px;
+            user-select: none;
+            transition: background-color 0.3s;
+            z-index: 1001;
+        }
+        
+        .prev:hover, .next:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+        
+        .prev {
+            left: 20px;
+        }
+        
+        .next {
+            right: 20px;
+        }
+        
+        /* Mobile adaptation */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px;
+                margin: 15px;
+                border-radius: 12px;
+            }
+            .transparent-bg {
+                padding: 20px;
+                margin: 10px 15px;
+            }
+            h2 {
+                font-size: 28px;
+                margin-top: 20px;
+                margin-bottom: 15px;
+            }
+            h4 {
+                font-size: 18px;
+                line-height: 1.4;
+            }
+            .content-container {
+                margin-top: 8%;
+            }
+            .featured-section {
+                margin: 10px;
+                flex-direction: column;
+                align-items: center;
+            }
+            .image-wrapper {
+                margin: 10px 0;
+                width: 100%;
+                max-width: 300px;
+            }
+            img {
+                max-width: 100%;
+            }
+            .contact-box {
+                margin: 20px 15px;
+                padding: 12px;
+            }
+            .close {
+                font-size: 30px;
+                top: 10px;
+                right: 15px;
+            }
+            .prev, .next {
+                font-size: 20px;
+                padding: 10px;
+            }
+            .section-container {
+                margin-bottom: 30px;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+            header {
+                padding: 15px;
+                margin: 10px;
+                border-radius: 10px;
+            }
+            .transparent-bg {
+                padding: 15px;
+                margin: 10px;
+            }
+            h2 {
+                font-size: 24px;
+                margin-bottom: 8px;
+                margin-top: 15px;
+            }
+            h4 {
+                font-size: 16px;
+                line-height: 1.4;
+                margin: 8px 0;
+            }
+            .content-container {
+                margin-top: 10%;
+            }
+            .featured-section {
+                margin: 10px 5px;
+            }
+            .image-wrapper {
+                margin: 8px 0;
+                max-width: 280px;
+            }
+            .contact-box {
+                margin: 15px 10px;
+                padding: 10px;
+            }
+            .section-container {
+                margin-bottom: 25px;
+            }
+        }
+        @media (max-width: 360px) {
+            h2 {
+                font-size: 22px;
+            }
+            h4 {
+                font-size: 15px;
+            }
+            .transparent-bg {
+                padding: 12px;
+            }
+            .image-wrapper {
+                max-width: 250px;
+            }
+        }
+        @media (max-height: 600px) and (orientation: landscape) {
+            .featured-section {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .image-wrapper {
+                width: 45%;
+                max-width: 200px;
+            }
+            .modal-content {
+                max-width: 80%;
+                max-height: 80%;
+            }
+            h2 {
+                margin-top: 15px;
+            }
+        }
+        @media (min-width: 1200px) {
+            .transparent-bg {
+                max-width: 800px;
+            }
+            h2 {
+                font-size: 40px;
+            }
+            .featured-section {
+                max-width: 1200px;
+                margin: 20px auto;
+            }
+        }
+    </style>  
+</head>  
+<body>  
+    <div class="main-content">  
+        <div class="text-box"></div>  
+        
+        <div class="section-container">
+            <h2>Excel</h2>
+            <section class="featured-section">  
+                <div class="image-wrapper">
+                    <img src="img/exel.png" alt="Excel - Screenshot 1" class="modal-image">  
+                </div>  
+                <div class="image-wrapper">  
+                    <img src="img/exel1.png" alt="Excel - Screenshot 2" class="modal-image">  
+                </div> 
+            </section>  
+        </div>
+        
+        <div class="section-container">
+            <h2>Database Model</h2>
+            <section class="featured-section">  
+                <div class="image-wrapper">
+                    <img src="img/бд.png" alt="Database Model" class="modal-image">  
+                </div>  
+            </section>  
+        </div>
+        
+        <div class="section-container">
+            <h2>PostgreSQL</h2>
+            <section class="featured-section">   
+                <div class="image-wrapper">  
+                    <img src="img/postgre.png" alt="PostgreSQL - Screenshot 1" class="modal-image">  
+                </div>  
+                <div class="image-wrapper">  
+                    <img src="img/postgre2.png" alt="PostgreSQL - Screenshot 2" class="modal-image">  
+                </div>   
+            </section>  
+        </div>
+        
+        <div class="section-container">
+            <h2>Corel Draw</h2>
+            <section class="featured-section">  
+                <div class="image-wrapper">
+                    <img src="img/pr/photo_5328270736349061625_y.jpg" alt="Corel Draw - Work 1" class="modal-image">  
+                </div>  
+                <div class="image-wrapper">  
+                    <img src="img/pr/photo_5328270736349061629_y.jpg" alt="Corel Draw - Work 2" class="modal-image">  
+                </div>  
+                <div class="image-wrapper">  
+                    <img src="img/pr/photo_5328270736349061630_y.jpg" alt="Corel Draw - Work 3" class="modal-image">  
+                </div>  
+                <div class="image-wrapper">  
+                    <img src="img/pr/photo_5328270736349061632_y.jpg" alt="Corel Draw - Work 4" class="modal-image">  
+                </div>  
+            </section>  
+        </div>
+        
+        <div class="section-container">
+            <h2>BP win</h2>
+            <section class="featured-section">  
+                <div class="image-wrapper">
+                    <img src="new/bp.jpg" alt="BP win - Screenshot 1" class="modal-image">  
+                </div>  
+                <div class="image-wrapper">  
+                    <img src="new/bp1.jpg" alt="BP win - Screenshot 2" class="modal-image">  
+                </div>  
+                <div class="image-wrapper">  
+                    <img src="new/bp2.jpg" alt="BP win - Screenshot 3" class="modal-image">  
+                </div>  
+            </section>  
+        </div>
+        
+        <div class="section-container">
+            <h2>Visual Basic</h2>
+            <section class="featured-section">  
+                <div class="image-wrapper">
+                    <img src="new/photo_5296583717474662568_y.jpg" alt="Visual Basic - Code 1" class="modal-image">  
+                </div>  
+                <div class="image-wrapper">  
+                    <img src="new/photo_5296583717474662565_x.jpg" alt="Visual Basic - Code 2" class="modal-image">  
+                </div>  
+                <div class="image-wrapper">  
+                    <img src="new/photo_5296583717474662569_y.jpg" alt="Visual Basic - Code 3" class="modal-image">  
+                </div>  
+                <div class="image-wrapper">  
+                    <img src="new/photo_5296583717474662570_x.jpg" alt="Visual Basic - Code 4" class="modal-image">  
+                </div>  
+                <div class="image-wrapper">  
+                    <img src="new/photo_5296583717474662571_x.jpg" alt="Visual Basic - Code 5" class="modal-image">  
+                </div>  
+            </section>  
+        </div>
+    </div>  
+    
+    <!-- Modal for images -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <span class="prev">&#10094;</span>
+        <span class="next">&#10095;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.modal-image');
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.close');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        
+        let currentIndex = 0;
+        let allImages = [];
+        
+        function collectAllImages() {
+            allImages = Array.from(images);
+        }
+        
+        function openModal(index) {
+            currentIndex = index;
+            modal.style.display = 'flex';
+            modalImg.src = allImages[currentIndex].src;
+            document.body.style.overflow = 'hidden';
+            modalImg.style.width = 'auto';
+            modalImg.style.height = 'auto';
+            modalImg.style.maxWidth = '90%';
+            modalImg.style.maxHeight = '90%';
+            modalImg.style.objectFit = 'contain';
+        }
+        
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        function showNext() {
+            currentIndex = (currentIndex + 1) % allImages.length;
+            modalImg.src = allImages[currentIndex].src;
+            modalImg.style.width = 'auto';
+            modalImg.style.height = 'auto';
+            modalImg.style.maxWidth = '90%';
+            modalImg.style.maxHeight = '90%';
+            modalImg.style.objectFit = 'contain';
+        }
+        
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+            modalImg.src = allImages[currentIndex].src;
+            modalImg.style.width = 'auto';
+            modalImg.style.height = 'auto';
+            modalImg.style.maxWidth = '90%';
+            modalImg.style.maxHeight = '90%';
+            modalImg.style.objectFit = 'contain';
+        }
+        
+        images.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                collectAllImages();
+                openModal(index);
+            });
+        });
+        
+        closeBtn.addEventListener('click', closeModal);
+        nextBtn.addEventListener('click', showNext);
+        prevBtn.addEventListener('click', showPrev);
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (modal.style.display === 'flex') {
+                if (e.key === 'Escape') {
+                    closeModal();
+                } else if (e.key === 'ArrowRight') {
+                    showNext();
+                } else if (e.key === 'ArrowLeft') {
+                    showPrev();
+                }
+            }
+        });
+        
+        window.addEventListener('load', () => {
+            collectAllImages();
+        });
+    </script>
+</body>  
+</html>

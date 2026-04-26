@@ -1,0 +1,302 @@
+<!DOCTYPE html>   
+<html lang="en">   
+<head>   
+    <meta charset="UTF-8"/>   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>   
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>   
+    <title>Portfolio</title>   
+    <style>   
+        body {   
+            font-family: Arial, Helvetica, sans-serif;   
+            margin: 0;   
+            padding: 0;   
+            background: url('img/oform/fonn.jpg') no-repeat center center fixed;   
+            background-size: cover;   
+            background-attachment: scroll; /* Changed for mobile */  
+            font-size: 16px;   
+            color: #ffffff;   
+            position: relative;   
+            min-height: 100vh;   
+        }   
+        
+        header {   
+            background-color: rgba(0, 0, 0, 0.7);   
+            padding: 20px;   
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);   
+            text-align: center;   
+            border-radius: 10px;   
+            margin: 20px;   
+            backdrop-filter: blur(5px); /* Blur effect */  
+        }   
+        
+        nav {   
+            margin: 15px 0;   
+            display: flex;   
+            flex-wrap: wrap;   
+            justify-content: center;   
+            gap: 10px;   
+        }   
+        
+        nav a {   
+            margin: 0 10px;   
+            text-decoration: none;   
+            color: #f0f0f0;   
+            font-size: 18px;   
+            transition: all 0.3s;   
+            padding: 8px 16px;   
+            border-radius: 5px;   
+            background: rgba(255, 255, 255, 0.1);   
+            white-space: nowrap;   
+        }   
+        
+        nav a:hover {   
+            color: #ffffff;   
+            background: rgba(255, 255, 255, 0.2);   
+            transform: translateY(-2px);   
+        }   
+        
+        h2 {   
+            color: #ffffff;   
+            font-size: 36px;   
+            margin-bottom: 10px;   
+            position: relative;   
+            text-align: center;   
+            line-height: 1.2;   
+        }   
+        
+        h3 {   
+            color: #f2f2f2;   
+            font-size: 28px;   
+            margin: 10px 0;   
+            text-align: left;   
+        }   
+        
+        .transparent-bg {   
+            background-color: rgba(30, 30, 30, 0.8);   
+            padding: 20px;   
+            border-radius: 10px;   
+            margin: 10px auto;   
+            max-width: 600px;   
+            text-align: center;   
+            backdrop-filter: blur(5px);   
+        }   
+        
+        .content-container {   
+            display: flex;   
+            flex-direction: column;   
+            align-items: center;   
+            margin-top: 3%;   
+            padding: 0 15px;   
+        }   
+        
+        .image-container {   
+            margin: 20px;   
+            width: 100%;   
+            max-width: 600px;   
+        }   
+        
+        img {   
+            width: 100%;   
+            height: auto;   
+            border-radius: 8px;   
+            transition: transform 0.3s;   
+            max-width: 100%;   
+        }   
+        
+        img:hover {   
+            transform: scale(1.05);   
+        }
+        
+        /* Loading animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .transparent-bg {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        /* Media queries for mobile devices */
+        @media (max-width: 1024px) {
+            h2 {
+                font-size: 32px;
+            }
+            .transparent-bg {
+                margin: 10px 20px;
+                padding: 15px;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+                background-attachment: scroll;
+            }
+            header {
+                margin: 15px;
+                padding: 15px;
+            }
+            h2 {
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            nav a {
+                width: 100%;
+                max-width: 300px;
+                margin: 0;
+                padding: 12px;
+                font-size: 16px;
+                text-align: center;
+            }
+            .transparent-bg {
+                padding: 15px;
+                margin: 10px 15px;
+            }
+            h3 {
+                font-size: 24px;
+                text-align: center;
+            }
+            .content-container {
+                margin-top: 5%;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                font-size: 13px;
+            }
+            header {
+                margin: 10px;
+                padding: 10px;
+                border-radius: 8px;
+            }
+            h2 {
+                font-size: 24px;
+                line-height: 1.3;
+                margin-bottom: 12px;
+            }
+            nav a {
+                padding: 10px;
+                font-size: 15px;
+                max-width: 250px;
+            }
+            .transparent-bg {
+                padding: 12px;
+                margin: 8px 10px;
+                border-radius: 8px;
+            }
+            h3 {
+                font-size: 20px;
+                margin: 8px 0;
+            }
+            .content-container {
+                margin-top: 8%;
+                padding: 0 10px;
+            }
+            .image-container {
+                margin: 15px 0;
+            }
+        }
+        @media (max-width: 360px) {
+            h2 {
+                font-size: 20px;
+            }
+            nav a {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+            .transparent-bg {
+                padding: 10px;
+            }
+            h3 {
+                font-size: 18px;
+            }
+        }
+        @media (max-height: 500px) and (orientation: landscape) {
+            header {
+                margin: 10px;
+                padding: 10px;
+            }
+            .transparent-bg {
+                margin: 5px auto;
+                padding: 10px;
+            }
+            nav {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                gap: 5px;
+            }
+            nav a {
+                padding: 6px 10px;
+                font-size: 14px;
+                flex: 1;
+                min-width: 0;
+            }
+            h2 {
+                font-size: 20px;
+                margin-bottom: 8px;
+            }
+            .content-container {
+                margin-top: 2%;
+            }
+        }
+        @media (min-width: 1200px) {
+            .transparent-bg {
+                max-width: 800px;
+            }
+            h2 {
+                font-size: 40px;
+            }
+        }
+        @media (hover: hover) {
+            nav a:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: translateY(-2px);
+            }
+            img:hover {
+                transform: scale(1.05);
+            }
+        }
+        @media (hover: none) {
+            nav a:active {
+                background: rgba(255, 255, 255, 0.2);
+            }
+            img:active {
+                transform: scale(1.05);
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .transparent-bg {
+                animation: none;
+            }
+        }
+    </style>   
+</head>   
+<body>   
+    <header>   
+        <div class="transparent-bg">   
+            <h2>Grenshyk German Portfolio</h2>   
+            <nav>   
+                <a href="obomne.html">About Me</a>   
+                <a href="one.html">1st Year</a>   
+                <a href="ty.html">2nd Year</a>   
+                <a href="tri.html">3rd Year</a> 
+                <a href="he.html">4th Year</a>   
+                <a href="proect.html">Projects</a>   
+            </nav>   
+        </div>   
+    </header>   
+    <div class="content-container">   
+        <!-- Add other content elements if needed -->   
+    </div>   
+</body>   
+</html>
